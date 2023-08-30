@@ -2,6 +2,7 @@ import os
 import tarfile
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 from six.moves import urllib
 
 DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master"
@@ -38,3 +39,6 @@ def split_train_test(data, test_ratio):
 #Function usage example
 #train_set, test_set = split_train_test(housing, 0.2)
 #print(len(train_set), "train +", len(test_set), "test")
+
+#Function above may be replace by:
+#train_set, test_set = train_test_split(housing, test_size=0.2, random_state=42)  42 -> arbritary number

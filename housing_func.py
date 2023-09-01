@@ -66,6 +66,11 @@ housing = strat_train_set.copy()
 
 #housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4, s=housing["population"]/100, label="population", figsize=(10,7), c="median_house_value", cmap=plt.get_cmap("jet"), colorbar=True)
 
+#creating new (more coherent) values to test correlation
+housing["rooms_per_household"] = housing["total_rooms"]/housing["households"]
+housing["bedrooms_per_room"] = housing["total_bedrooms"]/housing["total_rooms"]
+housing["population_per_household"] = housing["population"]/housing["households"]
+
 #Setting a correlation coeficient
 housing_temp = housing.drop(columns="ocean_proximity")
 corr_matrix = housing_temp.corr()

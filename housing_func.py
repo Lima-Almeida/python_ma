@@ -61,3 +61,12 @@ for train_index, test_index in split.split(housing, housing["income_cat"]):
 #Removing income_cat attribute to return dataset into its original state
 for set_ in (strat_train_set, strat_test_set):
     set_.drop("income_cat", axis=1, inplace=True)
+
+housing = strat_train_set.copy()
+
+#housing.plot(kind="scatter", x="longitude", y="latitude", alpha=0.4, s=housing["population"]/100, label="population", figsize=(10,7), c="median_house_value", cmap=plt.get_cmap("jet"), colorbar=True)
+
+#Setting a correlation coeficient
+housing_temp = housing.drop(columns="ocean_proximity")
+corr_matrix = housing_temp.corr()
+#corr_matrix["median_house_value"].sort_values(ascending=False)
